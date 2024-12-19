@@ -9,8 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-        behaviors {
-          tp: tap_preferred {
+    behaviors {
+        tp: tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "TAP_PREFERRED";
             #binding-cells = <2>;
@@ -18,17 +18,17 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-          }; 
-          tpm: tap_preferred_mode {
+        }, 
+        lt_impl: layer-tap-by-hold-tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "TAP_PREFERRED_MODE";
+            label = "LAYER_TAP_BY_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
-          }; 
         };
+    };
 
         keymap {
                 compatible = "zmk,keymap";
@@ -43,7 +43,7 @@
    &kp TAB       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp MINUS
    &tp LCTRL ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT     &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RBRC
-           &mo 1  &tp LALT ESC  &tp LGUI BSPC    &tp LSHFT  &kp SPACE  &tpm 2 RET
+           &mo 1  &tp LALT ESC  &tp LGUI BSPC    &tp LSHFT  &kp SPACE  &lt 2 RET
                         >;
                 };
                 lower_layer {
